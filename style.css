@@ -1,0 +1,65 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  align-items: center;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+main {
+  align-items: center;
+  background-color: red;
+  border-radius: 25px;
+  justify-content: space-evenly;
+  height: 400px;
+  width: 600px;
+}
+main > section {
+  background-color: lightgreen;
+  border-radius: 15px;
+  height: 90%;
+}
+main a {
+  bottom: 15px;
+  position: absolute;
+}
+
+.content-info {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 60%;
+}
+.content-info > * {
+  margin: 7px;
+}
+.content-info > * p {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.settings {
+  width: 30%;
+  text-align: center;
+}
+.settings form * {
+  margin: 7px;
+}
+
+.container {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.col {
+  flex-direction: column;
+}/*# sourceMappingURL=style.css.map */
