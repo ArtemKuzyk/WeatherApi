@@ -18,6 +18,7 @@ body {
   }
   #input-date {
     font-size: 20px;
+    max-width: 90%;
   }
   label {
     font-size: 24px;
@@ -33,6 +34,12 @@ body {
   p {
     font-size: 1em;
     font-weight: bold;
+  }
+  form div {
+    margin: 0;
+  }
+  form div * {
+    margin: 7px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -52,6 +59,9 @@ body {
   p {
     font-size: 1.5em;
     font-weight: bold;
+  }
+  form * {
+    margin: 7px;
   }
 }
 main {
@@ -86,10 +96,6 @@ main a {
   width: 30%;
   text-align: center;
 }
-.settings form * {
-  margin: 7px;
-}
-
 .container {
   display: flex;
 }
