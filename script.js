@@ -26,6 +26,13 @@ const imageContentField = document.querySelector('.content-info');
 const settingsEvent = document.querySelector('#settings');
 settingsEvent.addEventListener('click', () => {setTimeout(showWeather, 500)});
 
+
+window.onload = (event) => {
+    let currentDate = new Date().toJSON().slice(0,10);
+    document.querySelector("#input-date").value = currentDate;
+    console.log(currentDate);
+};
+
 function getWeatherProperties(){
     let weatherProperties = [];
     try{
@@ -84,7 +91,7 @@ function changeDOMImage(weatherProperties){
                 imageContentField.style.backgroundImage = 'url(rain-snow.png)';
             } else if (rain > 1 && rain > showers) {
                 imageContentField.style.backgroundImage = 'url(rain.png)';
-            } else if(snow > 1){
+            } else if(snowfall > 1){
                 imageContentField.style.backgroundImage = 'url(snow.png)';
             } else if(showers > 1){
                 imageContentField.style.backgroundImage = 'url(showers.png)';
@@ -95,7 +102,7 @@ function changeDOMImage(weatherProperties){
         else {
             if(rain > 1 || showers > 1) {
                 imageContentField.style.backgroundImage = 'url(rain-sun.png)';
-            } else if(snow > 1) {
+            } else if(snowfall > 1) {
                 imageContentField.style.backgroundImage = 'url(snow-sun.png)';
             } else {
                 imageContentField.style.backgroundImage = 'url(sun-cloud.png)';
