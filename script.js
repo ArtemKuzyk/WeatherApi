@@ -62,12 +62,12 @@ function changeDOMText(weatherProperties){
     let precipitation = Math.floor(weatherProperties['precipitation'].reduce((prValue, curValue) => prValue + curValue));
     let windspeed_10m = weatherProperties['windspeed_10m'].sort((a, b) => a - b);
     if(Math.floor(temperature[0]) == Math.floor(temperature[23])){
-        temperatureField.innerHTML = `${Math.floor(temperature[0])}c`;
+        temperatureField.innerHTML = `${Math.floor(temperature[0])}&#8451`;
     } else {
-        temperatureField.innerHTML = `min ${Math.floor(temperature[0])} max ${Math.floor(temperature[23])}c`;
+        temperatureField.innerHTML = `min ${Math.floor(temperature[0])}&#8451 max ${Math.floor(temperature[23])}&#8451`;
     }
     if(windspeed_10m[0] == windspeed_10m[23]){
-        windspeedField.innerHTML = `${windspeed_10m[0]}c`;
+        windspeedField.innerHTML = `${windspeed_10m[0]}km/h`;
     } else {
         windspeedField.innerHTML = `${windspeed_10m[0]}-${windspeed_10m[23]}km/h`;
     }
