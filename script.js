@@ -64,7 +64,7 @@ function changeDOMText(weatherProperties){
     if(Math.floor(temperature[0]) == Math.floor(temperature[23])){
         temperatureField.innerHTML = `${Math.floor(temperature[0])}c`;
     } else {
-        temperatureField.innerHTML = `${Math.floor(temperature[0])}-${Math.floor(temperature[23])}c`;
+        temperatureField.innerHTML = `min ${Math.floor(temperature[0])} max ${Math.floor(temperature[23])}c`;
     }
     if(windspeed_10m[0] == windspeed_10m[23]){
         windspeedField.innerHTML = `${windspeed_10m[0]}c`;

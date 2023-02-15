@@ -13,21 +13,42 @@ body {
 }
 
 @media screen and (min-width: 320px) {
-  #city {
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .container .content-info {
+    width: 90%;
+  }
+  .container .settings {
+    width: 90%;
+    text-align: center;
+  }
+  .container .settings form {
+    padding: 5px;
+  }
+  .container .settings form div {
+    margin: 0;
+  }
+  .container .settings form div * {
+    margin: 3.5px 7px;
+  }
+  .container .settings form .settings-select-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+  .container .settings form #city {
     font-size: 20px;
   }
-  #input-date {
+  .container .settings form #input-date {
     font-size: 20px;
     max-width: 80%;
   }
-  label {
+  .container .settings form label {
     font-size: 24px;
   }
-  .settings-select-container {
-    display: flex;
-    flex-direction: column;
-  }
-  #settings {
+  .container .settings form #settings {
     font-size: 24px;
     padding: 0 17px;
   }
@@ -35,33 +56,43 @@ body {
     font-size: 1em;
     font-weight: bold;
   }
-  form div {
-    margin: 0;
-  }
-  form div * {
-    margin: 3.5px 7px;
-  }
 }
 @media screen and (min-width: 768px) {
-  #city {
-    font-size: 13.333px;
+  .container {
+    flex-direction: row;
   }
-  #input-date {
-    font-size: 13.333px;
+  .container section {
+    height: 90%;
   }
-  label {
-    font-size: 16px;
+  .container .content-info {
+    width: 60%;
   }
-  .settings-select-container {
+  .container .settings {
+    width: 30%;
+    text-align: center;
+  }
+  .container .settings form {
+    padding: 0;
+  }
+  .container .settings form * {
+    margin: 7px;
+  }
+  .container .settings form .settings-select-container {
     display: flex;
     flex-direction: row;
+  }
+  .container .settings form #city {
+    font-size: 13.333px;
+  }
+  .container .settings form #input-date {
+    font-size: 13.333px;
+  }
+  .container .settings form label {
+    font-size: 16px;
   }
   p {
     font-size: 1.5em;
     font-weight: bold;
-  }
-  form * {
-    margin: 7px;
   }
 }
 main {
@@ -75,7 +106,6 @@ main {
 main > section {
   background-color: lightgreen;
   border-radius: 15px;
-  height: 90%;
 }
 main a {
   bottom: 15px;
@@ -90,20 +120,4 @@ main a {
 }
 .content-info > * {
   margin: 7px;
-}
-
-.settings {
-  width: 30%;
-  text-align: center;
-}
-.container {
-  display: flex;
-}
-
-.row {
-  flex-direction: row;
-}
-
-.col {
-  flex-direction: column;
 }/*# sourceMappingURL=style.css.map */
