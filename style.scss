@@ -16,8 +16,11 @@ body{
     .container{
         display: flex;
         flex-direction: column-reverse;
+        min-height: 88vh;
+        max-width: 350px;
         .content-info{
             width: 90%;
+            min-height: 50%;
         }
         .settings{
             width: 90%;
@@ -25,7 +28,6 @@ body{
             form {
                 padding: 5px;
                 div{
-                    margin: 0;
                     *{
                         margin: 3.5px 7px;
                     }
@@ -34,20 +36,27 @@ body{
                     display: flex;
                     flex-direction: column;
                     width: 90%;
+                    margin: auto;
                 }
-                #city{
+                #city, #input-date, #settings{
                     font-size: 20px;
-                }
-                #input-date{
-                    font-size: 20px;
-                    max-width: 80%;
+                    background: bisque;
+                    outline: none;
+                    border: 2px solid black;
+                    border-radius: 15px;
+                    cursor: pointer;
                 }
                 label{
                     font-size: 24px;
                 }
-                #settings{
+                #settings{ //button
                     font-size: 24px;
                     padding: 0 17px;
+                    padding: 5px 25px;
+                    transition: background-color 1s;
+                    &:hover{
+                        background-color: aquamarine;
+                    }
                 }
             }
         }
@@ -60,6 +69,8 @@ body{
 // @media screen and(min-width:480px){}
 @media screen and (min-width:768px){
     .container{
+        min-height: auto;
+        max-width: none;
         section{
             height: 90%;
         }
@@ -71,7 +82,6 @@ body{
             width: 30%;
             text-align: center;
             form {
-                padding: 0;
                 *{
                     margin: 7px;
                 }
@@ -109,7 +119,6 @@ main{
     > section{
         background-color: lightgreen;
         border-radius: 15px;
-        // height: 90%;
     }
     a{
         bottom: 15px;
@@ -127,20 +136,3 @@ main{
         margin: 7px;
     }
 }
-
-// .settings{
-//     width: 30%;
-//     text-align: center;
-// }
-
-// .container{
-//     display: flex;
-// }
-
-// .row{
-//     flex-direction: row;
-// }
-
-// .col{
-//     flex-direction: column;
-// }
