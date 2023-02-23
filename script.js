@@ -118,3 +118,38 @@ function changeDOMImage(weatherProperties){
         }
     }
 }
+
+let isGeoLocation = document.getElementById("weather-position").checked;
+function changeShowClasses(){
+    const cities = document.querySelector('.cities');
+    const geoLocation = document.querySelector('.geolocation');
+    cities.classList.toggle('cities__not-diplay');
+    geoLocation.classList.toggle('geolocation__display');
+}
+function showLocation(position){
+    const latitude = document.querySelector('.latitude');
+    const longitude = document.querySelector('.longitude');
+
+    latitude.innerHTML = position.coords.latitude;
+    longitude.innerHTML = position.coords.longitude;
+}
+
+console.log(isGeoLocation)
+function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showLocation);
+    } else {
+       alert("Geolocation is not supported by this browser.");
+    }
+}
+
+function changeSettingForm(){
+    changeShowClasses();
+    getLocation();  
+}
+  
+  function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+  }
+  getLocation()

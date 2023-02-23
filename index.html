@@ -25,10 +25,12 @@
         </section>
         <section class="settings">
             <form>
-                <!-- <label for="weather-position">City/Latitude-Longitude</label> -->
-                <!-- <input type="checkbox" name="weather-position" id="weather-position"> -->
-                <div class="settings-select-container">
-                    <label for="city">city</label>
+                <div class="settings__container">
+                    <label for="weather-position">Geolocation</label>
+                    <input type="checkbox" name="weather-position" id="weather-position" onclick="changeSettingForm()">
+                </div>
+                <div class="settings__container cities">
+                    <label for="city">City</label>
                     <select name="city" id="city">
                         <option value="Kyiv">Kyiv</option>
                         <option value="London">London</option>
@@ -41,12 +43,14 @@
                         <option value="Uzhhorod">Uzhhorod</option>
                     </select>
                 </div>
-                <div class="settings-select-container">
-                    <label for="date">date</label>
+                <div class="settings__container geolocation">
+                    <p>latitude  <span class="latitude"></span></p> 
+                    <p>longitude <span class="longitude"></span></p>
+                </div>
+                <div class="settings__container">
+                    <label for="date">Date</label>
                     <input name="start_date" id="input-date" type="date">
                 </div>
-                <!-- <label for="city">city</label>
-                <input name="city" id="city" type="text"> -->
                 <input value="set" type="button" id="settings"></input>
             </form>
         </section>

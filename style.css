@@ -33,11 +33,25 @@ body {
   .container .settings form div * {
     margin: 3.5px 7px;
   }
-  .container .settings form .settings-select-container {
+  .container .settings form p {
+    font-size: 24px;
+    font-weight: normal;
+  }
+  .container .settings form .settings__container {
     display: flex;
     flex-direction: column;
     width: 90%;
     margin: auto;
+  }
+  .container .settings form .cities__not-diplay {
+    display: none !important;
+  }
+  .container .settings form .geolocation {
+    display: none !important;
+  }
+  .container .settings form .geolocation__display {
+    display: flex !important;
+    flex-direction: column !important;
   }
   .container .settings form #city, .container .settings form #input-date, .container .settings form #settings {
     font-size: 20px;
@@ -83,7 +97,10 @@ body {
   .container .settings form * {
     margin: 7px;
   }
-  .container .settings form .settings-select-container {
+  .container .settings form p {
+    font-size: 14px;
+  }
+  .container .settings form .settings__container {
     display: flex;
     flex-direction: row;
   }
