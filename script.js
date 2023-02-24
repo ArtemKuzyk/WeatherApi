@@ -12,26 +12,32 @@ const cities = {'Kyiv':[50.4422, 30.5367],
                 
 const properties = `temperature_2m,precipitation,windspeed_10m,rain,showers,snowfall,cloudcover`;
 
-const latlong = `latitude=50.4422&longitude=30.5367`;
+//const latlong = `latitude=50.4422&longitude=30.5367`;
 
 const temperatureField = document.querySelector('#temperature');
 const precipitationField = document.querySelector('#precipitation');
 const windspeedField = document.querySelector('#windspeed');
+const geolocationCheckbox = document.getElementById("weather-position");
+let isGeoLocation = false;
 const dateField = document.querySelector('#date-setting');
 const weatherDate = document.querySelector('#input-date');
 const citySelected = document.querySelector('#city');
-
 const imageContentField = document.querySelector('.content-info');
-
 const settingsEvent = document.querySelector('#settings');
-settingsEvent.addEventListener('click', () => {setTimeout(showWeather, 500)});
+let latitude = document.querySelector('.latitude');
+let longitude = document.querySelector('.longitude');
 
+// settingsEvent.addEventListener('click', () => {setTimeout(showWeather, 500)});
+settingsEvent.addEventListener('click', () => showWeather());
 
 window.onload = (event) => {
     let currentDate = new Date().toJSON().slice(0,10);
     document.querySelector("#input-date").value = currentDate;
-    console.log(currentDate);
 };
+
+geolocationCheckbox.addEventListener('change', (e) => {
+    isGeoLocation = e.target.checked;
+})
 
 function getWeatherProperties(){
     let weatherProperties = [];
@@ -54,6 +60,9 @@ function showWeather(){
 };
 
 function getCoordinate(){
+    if(isGeoLocation){
+        return `latitude=${latitude.innerHTML}&longitude=${longitude.innerHTML}`;
+    }
     return `latitude=${cities[citySelected.value][0]}&longitude=${cities[citySelected.value][1]}`;
 }
 
@@ -83,8 +92,6 @@ function changeDOMImage(weatherProperties){
     let snowfall = weatherProperties['snowfall'].reduce((prValue, curValue) => prValue + curValue);
     let precipitation = Math.floor(weatherProperties['precipitation'].reduce((prValue, curValue) => prValue + curValue));
 
-    // if(rain > 1 && snowfall > 1) {
-    //     imageContentField.style.backgroundImage = 'url(rain-snow.png)';
     if(precipitation > 1) {
         if(cloudcover > 50){
             if(snowfall > 1 && rain > 1) {
@@ -119,22 +126,18 @@ function changeDOMImage(weatherProperties){
     }
 }
 
-let isGeoLocation = document.getElementById("weather-position").checked;
 function changeShowClasses(){
     const cities = document.querySelector('.cities');
     const geoLocation = document.querySelector('.geolocation');
     cities.classList.toggle('cities__not-diplay');
     geoLocation.classList.toggle('geolocation__display');
 }
-function showLocation(position){
-    const latitude = document.querySelector('.latitude');
-    const longitude = document.querySelector('.longitude');
 
+function showLocation(position){
     latitude.innerHTML = position.coords.latitude;
     longitude.innerHTML = position.coords.longitude;
 }
 
-console.log(isGeoLocation)
 function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showLocation);
@@ -147,9 +150,3 @@ function changeSettingForm(){
     changeShowClasses();
     getLocation();  
 }
-  
-  function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude;
-  }
-  getLocation()
