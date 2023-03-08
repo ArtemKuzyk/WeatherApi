@@ -26,6 +26,7 @@ const imageContentField = document.querySelector('.content-info');
 const settingsEvent = document.querySelector('#settings');
 let latitude = document.querySelector('.latitude');
 let longitude = document.querySelector('.longitude');
+const cityField = document.querySelector('.city');
 
 // settingsEvent.addEventListener('click', () => {setTimeout(showWeather, 500)});
 settingsEvent.addEventListener('click', () => showWeather());
@@ -133,9 +134,35 @@ function changeShowClasses(){
     geoLocation.classList.toggle('geolocation__display');
 }
 
+//////////////////////////////////////
+
+function getCity(coordinates) {
+    var xhr = new XMLHttpRequest();
+    var lat = coordinates.coords.latitude;
+    var lng = coordinates.coords.longitude;
+  
+    // Paste your LocationIQ token below.
+    xhr.open('GET', "https://us1.locationiq.com/v1/reverse.php?key=pk.8f3eadbb8351cdd993a488ab59e5cd35&lat=" +
+    lat + "&lon=" + lng + "&format=json", true);
+    xhr.send();
+    xhr.onreadystatechange = processRequest;
+    xhr.addEventListener("readystatechange", processRequest, false);
+  
+    function processRequest(e) {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var response = JSON.parse(xhr.responseText);
+            var city = response.address.city;
+            console.log(city);
+            cityField.innerHTML = city;
+            return;
+        }
+    }
+}
+
 function showLocation(position){
     latitude.innerHTML = position.coords.latitude;
     longitude.innerHTML = position.coords.longitude;
+    getCity(position);
 }
 
 function getLocation() {
