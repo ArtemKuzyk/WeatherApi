@@ -24,11 +24,10 @@ const weatherDate = document.querySelector('#input-date');
 const citySelected = document.querySelector('#city');
 const imageContentField = document.querySelector('.content-info');
 const settingsEvent = document.querySelector('#settings');
-let latitude = document.querySelector('.latitude');
-let longitude = document.querySelector('.longitude');
+let latitude;
+let longitude;
 const cityField = document.querySelector('.city');
 
-// settingsEvent.addEventListener('click', () => {setTimeout(showWeather, 500)});
 settingsEvent.addEventListener('click', () => showWeather());
 
 window.onload = (event) => {
@@ -62,7 +61,7 @@ function showWeather(){
 
 function getCoordinate(){
     if(isGeoLocation){
-        return `latitude=${latitude.innerHTML}&longitude=${longitude.innerHTML}`;
+        return `latitude=${latitude}&longitude=${longitude}`;
     }
     return `latitude=${cities[citySelected.value][0]}&longitude=${cities[citySelected.value][1]}`;
 }
@@ -136,14 +135,12 @@ function changeShowClasses(){
 
 //////////////////////////////////////
 
-function getCity(coordinates) {
+function getCity() {
     var xhr = new XMLHttpRequest();
-    var lat = coordinates.coords.latitude;
-    var lng = coordinates.coords.longitude;
   
     // Paste your LocationIQ token below.
     xhr.open('GET', "https://us1.locationiq.com/v1/reverse.php?key=pk.8f3eadbb8351cdd993a488ab59e5cd35&lat=" +
-    lat + "&lon=" + lng + "&format=json", true);
+    latitude + "&lon=" + longitude + "&format=json", true);
     xhr.send();
     xhr.onreadystatechange = processRequest;
     xhr.addEventListener("readystatechange", processRequest, false);
@@ -160,9 +157,9 @@ function getCity(coordinates) {
 }
 
 function showLocation(position){
-    latitude.innerHTML = position.coords.latitude;
-    longitude.innerHTML = position.coords.longitude;
-    getCity(position);
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+    getCity();
 }
 
 function getLocation() {

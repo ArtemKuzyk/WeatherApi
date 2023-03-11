@@ -42,6 +42,10 @@ body{
                     width: 90%;
                     margin: auto;
                 }
+                .geolocation_container{
+                    flex-direction: row;
+                    justify-content: center;
+                }
                 .cities__not-diplay{
                     display: none!important;
                 }
