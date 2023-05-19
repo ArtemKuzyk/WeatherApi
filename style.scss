@@ -90,7 +90,7 @@ body{
     .container{
         min-height: auto;
         max-width: none;
-        section{
+        > div{
             height: 90%;
         }
         .content-info{
@@ -138,7 +138,7 @@ main{
     justify-content: space-evenly;
     height: 400px;
     width: 600px;
-    > section{
+    > div{
         background-color: lightgreen;
         border-radius: 15px;
     }
