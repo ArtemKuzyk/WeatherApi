@@ -9,49 +9,57 @@
 </head>
 <body>
     <main class="container">
-        <div class="content-info">
-            <div class="weatherContainer">
-                <p>Date: <span id="date-setting"></span></p>
+        <div class="main-container">
+            <div class="content-info">
+                <div class="weatherContainer">
+                    <p>Date: <span id="date-setting"></span></p>
+                </div>
+                <div class="weatherContainer">
+                    <p>temperature: <span id="temperature"></span></p>
+                </div>
+                <div class="weatherContainer">
+                    <p>windspeed: <span id="windspeed"></span></p>
+                </div>
+                <div class="weatherContainer">
+                    <p>precipitation: <span id="precipitation"></span></p>
+                </div>
             </div>
-            <div class="weatherContainer">
-                <p>temperature: <span id="temperature"></span></p>
-            </div>
-            <div class="weatherContainer">
-                <p>windspeed: <span id="windspeed"></span></p>
-            </div>
-            <div class="weatherContainer">
-                <p>precipitation: <span id="precipitation"></span></p>
+            <div class="settings">
+                <form>
+                    <div class="settings__container geolocation_container">
+                        <label for="weather-position">Geolocation</label>
+                        <input type="checkbox" name="weather-position" id="weather-position" onclick="changeSettingForm()">
+                    </div>
+                    <div class="settings__container cities">
+                        <label for="city">City</label>
+                        <select name="city" id="city">
+                            <option value="Kyiv">Kyiv</option>
+                            <option value="London">London</option>
+                            <option value="Madrid">Madrid</option>
+                            <option value="Warsaw">Warsaw</option>
+                            <option value="New York">New York</option>
+                            <option value="Los Angeles">Los Angeles</option>
+                            <option value="Tokyo">Tokyo</option>
+                            <option value="Malaga">Malaga</option>
+                            <option value="Uzhhorod">Uzhhorod</option>
+                        </select>
+                    </div>
+                    <div class="settings__container geolocation">
+                        <p class="city"></p>
+                    </div>
+                    <div class="settings__container">
+                        <label for="input-date">Date</label>
+                        <input name="start_date" id="input-date" type="date">
+                    </div>
+                    <input value="set" type="button" id="settings">
+                </form>
+                <button class="button_details">
+                    details
+                </button>
             </div>
         </div>
-        <div class="settings">
-            <form>
-                <div class="settings__container geolocation_container">
-                    <label for="weather-position">Geolocation</label>
-                    <input type="checkbox" name="weather-position" id="weather-position" onclick="changeSettingForm()">
-                </div>
-                <div class="settings__container cities">
-                    <label for="city">City</label>
-                    <select name="city" id="city">
-                        <option value="Kyiv">Kyiv</option>
-                        <option value="London">London</option>
-                        <option value="Madrid">Madrid</option>
-                        <option value="Warsaw">Warsaw</option>
-                        <option value="New York">New York</option>
-                        <option value="Los Angeles">Los Angeles</option>
-                        <option value="Tokyo">Tokyo</option>
-                        <option value="Malaga">Malaga</option>
-                        <option value="Uzhhorod">Uzhhorod</option>
-                    </select>
-                </div>
-                <div class="settings__container geolocation">
-                    <p class="city"></p>
-                </div>
-                <div class="settings__container">
-                    <label for="input-date">Date</label>
-                    <input name="start_date" id="input-date" type="date">
-                </div>
-                <input value="set" type="button" id="settings">
-            </form>
+        <div class="graphic-container">
+            
         </div>
         <a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a>
     </main>
